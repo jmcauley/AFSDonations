@@ -7,13 +7,48 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
     @Styles.Render("~/Content/bootstrap")
-    
-</head>
-<body>
-    @RenderBody()
+    <style type="text/css">
+        body {
+            padding-top: 0px;
+            padding-bottom: 40px;
+        }
 
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
-    @Scripts.Render("~/bundles/bootstrap")
-</body>
+      /* Custom container */
+        .container-narrow {
+            margin: 0 auto;
+            max-width: 700px;
+        }
+        .container-narrow > hr {
+            margin: 30px 0;
+        }
+
+      /* Supporting marketing content */
+        .marketing {
+            margin: 20px 0;
+        }
+        .marketing p + h4 {
+            margin-top: 28px;
+        }
+        
+    </style>
+</head>
+    <body>
+        <div class="container-narrow">
+          <div class="masthead">
+              <img src="@Url.Content("Content/images/AFS_Tag-USA-Smaller.png")" />
+          </div>
+
+          @RenderBody()
+
+          <div class="footer">
+            <p>&copy; Company 2013</p>
+          </div>
+
+        </div> <!-- /container -->
+        
+
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/bootstrap")
+    </body>
 </html>
