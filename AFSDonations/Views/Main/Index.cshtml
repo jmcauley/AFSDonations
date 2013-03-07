@@ -18,7 +18,7 @@
 <div class="row-fluid marketing">
     <div class="span8 offset1">
         <form name="donorform" id="donorform" action="@Url.Action("Index")" class="form-horizontal" method="POST">
-            <input type="hidden" name="StudentWidgetId" value="@Model.StudentWidget_StudentWidgetId"/>
+            <input type="hidden" name="StudentWidget_StudentWidgetId" value="@Model.StudentWidget_StudentWidgetId"/>
             <fieldset>
                 <legend>Donor Info</legend>
                 <div class="control-group">
@@ -80,9 +80,10 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="ExpDate">Expiration Date:</label> 
+                    <label class="control-label" for="ExpDate">Exp. Month/Year:</label> 
                     <div class="controls">
-                        <input class="span8" name="ExpDate" id="ExpDate" type="text" placeholder="Expiration Date" value="" />
+                        <input class="span5" name="ExpMonth" id="ExpMonth" type="text" placeholder="Expiration Month" value="" />
+                        <input class="span5" name="ExpYear" id="ExpYear" type="text" placeholder="Expiration Year" value="" />
                     </div>
                 </div>
                 <div class="control-group">

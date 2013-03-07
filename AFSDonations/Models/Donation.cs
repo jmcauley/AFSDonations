@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AFSDonations.Models
 {
@@ -18,5 +19,18 @@ namespace AFSDonations.Models
         public string Zip { get; set; }
         public System.DateTime DateOfTransaction { get; set; }
         public virtual StudentWidget StudentWidget { get; set; }
+
+        [NotMapped]
+        public string CardName { get; set; }
+        [NotMapped]
+        public string Message { get; set; }
+        [NotMapped]
+        public string CardNumber { get; set; }
+        [NotMapped]
+        public string ExpMonth { get; set; }
+        [NotMapped]
+        public string ExpYear { get; set; }
+        [NotMapped]
+        public string CVV2 { get; set; }
     }
 }
