@@ -4,6 +4,15 @@
     ViewBag.Title = "Index";
 }
 
+@if (@ViewBag.ErrorMsg.Length > 0)
+{
+  <div class="row-fluid marketing">
+    <div class="span8 offset1 alert-error">
+        <p class="text-center">@ViewBag.ErrorMsg</p>
+    </div>
+</div>
+}
+
 <div class="row-fluid marketing">
     <div class="span8 offset1">
         <p>
@@ -28,6 +37,12 @@
                         <input class="span5" name="LastName" id="LastName" type="text" placeholder="LastName" value="@Model.LastName"/>
                     </div>
                 </div>
+                <div class="control-group">
+                    <label class="control-label" for="Email">Email:</label> 
+                    <div class="controls">
+                        <input class="span11" name="Email" id="Email" type="text" placeholder="Email Address" value="@Model.Email"/>
+                    </div>
+                </div>
                 <div class="control-group input-prepend">
                     <label class="control-label" for="Amount">Donation Amount:</label> 
                     <div class="controls">
@@ -35,9 +50,9 @@
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="donationMessage">Message (optional):</label> 
+                    <label class="control-label" for="donationMessage">Message To Student (optional):</label> 
                     <div class="controls">
-                        <textarea rows="3" class="span11" id="donationMessage" name="donationMessage"></textarea>
+                        <textarea rows="3" class="span11" id="Message" name="Message">@Model.Message</textarea>
                     </div>
                 </div>
             </fieldset>
@@ -46,7 +61,7 @@
                 <div class="control-group">
                     <label class="control-label" for="CardName">Name on Card:</label> 
                     <div class="controls">
-                        <input class="span11" name="CardName" id="CardName" type="text" placeholder="Name on Card" value=""/>
+                        <input class="span11" name="CardName" id="CardName" type="text" placeholder="Name on Card" value="@Model.CardName"/>
                     </div>
                 </div>
                 <div class="control-group">
@@ -76,20 +91,20 @@
                 <div class="control-group">
                     <label class="control-label" for="CardNumber">Card Number:</label> 
                     <div class="controls">
-                        <input class="span11" name="CardNumber" id="CardNumber" type="text" placeholder="CardNumber" value="" />
+                        <input class="span11" name="CardNumber" id="CardNumber" type="text" placeholder="CardNumber" value="@Model.CardNumber" />
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="ExpDate">Exp. Month/Year:</label> 
                     <div class="controls">
-                        <input class="span5" name="ExpMonth" id="ExpMonth" type="text" placeholder="Expiration Month" value="" />
-                        <input class="span5" name="ExpYear" id="ExpYear" type="text" placeholder="Expiration Year" value="" />
+                        <input class="span5" name="ExpMonth" id="ExpMonth" type="text" placeholder="Expiration Month" value="@Model.ExpMonth" />
+                        <input class="span5" name="ExpYear" id="ExpYear" type="text" placeholder="Expiration Year" value="@Model.ExpYear" />
                     </div>
                 </div>
                 <div class="control-group">
                     <label class="control-label" for="CVV2">CVV2:</label> 
                     <div class="controls">
-                        <input class="span8" name="CVV2" id="CVV2" type="text" placeholder="CVV2" value="" />
+                        <input class="span8" name="CVV2" id="CVV2" type="text" placeholder="CVV2" value="@Model.CVV2" />
                     </div>
                 </div>
 

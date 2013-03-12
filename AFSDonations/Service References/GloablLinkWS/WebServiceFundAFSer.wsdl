@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://afsglobal.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://afsglobal.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://afsglobal.org/">
+      <s:element name="AFSWidgetGetProgramDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AFSWidgetGetProgramDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AFSWidgetGetProgramDetailsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AFSWidgetSetCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="widgetID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="widgetCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="widgetEndDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AFSWidgetSetCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AFSWidgetSetCodeResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AFSWidgetGLAuthentication">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userID_GL" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord_GL" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AFSWidgetGLAuthenticationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AFSWidgetGLAuthenticationResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AFSWidgetPaymentDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="widgetID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transactionID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payerFirstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payerLastname" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payerAddr" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payerCity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payerState" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payerZip" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payerEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="aMount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="msgToPax" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AFSWidgetPaymentDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AFSWidgetPaymentDetailsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AFSWidgetStatusUpdate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="passWord" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="serviceID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="widgetID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="modifiedDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="comment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AFSWidgetStatusUpdateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AFSWidgetStatusUpdateResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="AFSWidgetGetProgramDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:AFSWidgetGetProgramDetails" />
+  </wsdl:message>
+  <wsdl:message name="AFSWidgetGetProgramDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:AFSWidgetGetProgramDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AFSWidgetSetCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:AFSWidgetSetCode" />
+  </wsdl:message>
+  <wsdl:message name="AFSWidgetSetCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:AFSWidgetSetCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="AFSWidgetGLAuthenticationSoapIn">
+    <wsdl:part name="parameters" element="tns:AFSWidgetGLAuthentication" />
+  </wsdl:message>
+  <wsdl:message name="AFSWidgetGLAuthenticationSoapOut">
+    <wsdl:part name="parameters" element="tns:AFSWidgetGLAuthenticationResponse" />
+  </wsdl:message>
+  <wsdl:message name="AFSWidgetPaymentDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:AFSWidgetPaymentDetails" />
+  </wsdl:message>
+  <wsdl:message name="AFSWidgetPaymentDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:AFSWidgetPaymentDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AFSWidgetStatusUpdateSoapIn">
+    <wsdl:part name="parameters" element="tns:AFSWidgetStatusUpdate" />
+  </wsdl:message>
+  <wsdl:message name="AFSWidgetStatusUpdateSoapOut">
+    <wsdl:part name="parameters" element="tns:AFSWidgetStatusUpdateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebserviceFundAFSerSoap">
+    <wsdl:operation name="AFSWidgetGetProgramDetails">
+      <wsdl:input message="tns:AFSWidgetGetProgramDetailsSoapIn" />
+      <wsdl:output message="tns:AFSWidgetGetProgramDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AFSWidgetSetCode">
+      <wsdl:input message="tns:AFSWidgetSetCodeSoapIn" />
+      <wsdl:output message="tns:AFSWidgetSetCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AFSWidgetGLAuthentication">
+      <wsdl:input message="tns:AFSWidgetGLAuthenticationSoapIn" />
+      <wsdl:output message="tns:AFSWidgetGLAuthenticationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AFSWidgetPaymentDetails">
+      <wsdl:input message="tns:AFSWidgetPaymentDetailsSoapIn" />
+      <wsdl:output message="tns:AFSWidgetPaymentDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AFSWidgetStatusUpdate">
+      <wsdl:input message="tns:AFSWidgetStatusUpdateSoapIn" />
+      <wsdl:output message="tns:AFSWidgetStatusUpdateSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebserviceFundAFSerSoap" type="tns:WebserviceFundAFSerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AFSWidgetGetProgramDetails">
+      <soap:operation soapAction="http://afsglobal.org/AFSWidgetGetProgramDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AFSWidgetSetCode">
+      <soap:operation soapAction="http://afsglobal.org/AFSWidgetSetCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AFSWidgetGLAuthentication">
+      <soap:operation soapAction="http://afsglobal.org/AFSWidgetGLAuthentication" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AFSWidgetPaymentDetails">
+      <soap:operation soapAction="http://afsglobal.org/AFSWidgetPaymentDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AFSWidgetStatusUpdate">
+      <soap:operation soapAction="http://afsglobal.org/AFSWidgetStatusUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebserviceFundAFSerSoap12" type="tns:WebserviceFundAFSerSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="AFSWidgetGetProgramDetails">
+      <soap12:operation soapAction="http://afsglobal.org/AFSWidgetGetProgramDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AFSWidgetSetCode">
+      <soap12:operation soapAction="http://afsglobal.org/AFSWidgetSetCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AFSWidgetGLAuthentication">
+      <soap12:operation soapAction="http://afsglobal.org/AFSWidgetGLAuthentication" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AFSWidgetPaymentDetails">
+      <soap12:operation soapAction="http://afsglobal.org/AFSWidgetPaymentDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AFSWidgetStatusUpdate">
+      <soap12:operation soapAction="http://afsglobal.org/AFSWidgetStatusUpdate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebserviceFundAFSer">
+    <wsdl:port name="WebserviceFundAFSerSoap" binding="tns:WebserviceFundAFSerSoap">
+      <soap:address location="https://preprousa.afsglobal.org/AFSGlobal/WebServiceFundAFSer.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebserviceFundAFSerSoap12" binding="tns:WebserviceFundAFSerSoap12">
+      <soap12:address location="https://preprousa.afsglobal.org/AFSGlobal/WebServiceFundAFSer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

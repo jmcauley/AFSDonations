@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Xml.Linq;
 using AFSDonations.Models;
+using AFSDonations.GloablLinkWS;
 using AuthorizeNet;
 
 namespace AFSDonations.Controllers
@@ -24,6 +26,7 @@ namespace AFSDonations.Controllers
                 donation.StudentWidget = widget;
                 ViewBag.WidgetName = widget.FirstName;
             }
+            ViewBag.ErrorMsg = "";
             return View(donation);
         }
 
@@ -47,14 +50,41 @@ namespace AFSDonations.Controllers
                 using (var context = new AFSAdminContext())
                 {
                     var widget = context.StudentWidgets.Find(donation.StudentWidget_StudentWidgetId);
+                    donation.DonationId = Guid.NewGuid();
                     donation.StudentWidget = widget;
-                    context.Donations.Attach(donation);
+                    donation.DateOfTransaction = DateTime.Now;
+                    donation.StudentWidget.AmountRaised += donation.Amount;
+                    context.Donations.Add(donation);
                     context.SaveChanges();
 
                 }
+
+                using (var svc = new WebserviceFundAFSerSoapClient())
+                {
+                    XElement rsp = svc.AFSWidgetPaymentDetails("afserwidget2012", "white1Hallfl2oreappleCity"
+                                                                    , donation.StudentWidget.ServiceId.ToString()
+                                                                    , donation.StudentWidget.StudentWidgetId.ToString()
+                                                                    , donation.TransactionId
+                                                                    , donation.DonationId.ToString()
+                                                                    , donation.FirstName
+                                                                    , donation.LastName
+                                                                    , donation.Address
+                                                                    , donation.City
+                                                                    , donation.State
+                                                                    , donation.Zip
+                                                                    , donation.Email
+                                                                    , donation.Amount.ToString()
+                                                                    , donation.Message);
+                }
+
+                TempData["Email"] = donation.Email;
+                TempData["Name"] = donation.StudentWidget.FirstName;
+                TempData["Amount"] = donation.Amount;
                 return RedirectToAction("Reciept");
             }
 
+            ViewBag.WidgetName = donation.StudentWidget.FirstName;
+            ViewBag.ErrorMsg = response.Message;
             return View(donation);
         }
 
