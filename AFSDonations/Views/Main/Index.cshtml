@@ -16,10 +16,13 @@
 <div class="row-fluid marketing">
     <div class="span8 offset1">
         <p>
-            @ViewBag.WidgetName is fundraising for an AFS Study Abroad Program to Germany. Donations made on this page are secure and go directly to @ViewBag.WidgetName's program tuition. Upon making a donation via the form below, you will receive a receipt by email. Donations are not tax deductible.
+            @ViewBag.WidgetName is fundraising for an AFS Study Abroad Program to @Model.StudentWidget.DestinationCountry.
         </p>
         <p>
-            Sponsor an AFSer is a tool that makes fundraising easy for students by providing a widget for their blogs that takes secure payments from contributors and deposits the donation straight into a student's AFS tuition account.
+            Sponsor an AFSer is an online tool that makes fundraising easy for students by providing a widget that allows contributors the ability to make secure contributions directly to an AFS'ers program tuition. 
+        </p>
+        <p>
+            The contribution you make on this page is secure and will go straight to @ViewBag.WidgetName's AFS tuition account. You will receive a receipt via email. Please remember that contributions made through the Sponsor an AFSer program are not tax deductible. 
         </p>
     </div>   
 </div>
@@ -110,7 +113,6 @@
 
                 <div class="form-actions">
                     <button type="submit" id="submit" class="btn btn-primary">Donate</button>
-                    <button type="button" id="cancel" class="btn">Cancel</button>
                 </div>
             </fieldset>
         </form>

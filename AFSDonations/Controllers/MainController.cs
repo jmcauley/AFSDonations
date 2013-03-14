@@ -83,7 +83,12 @@ namespace AFSDonations.Controllers
                 return RedirectToAction("Reciept");
             }
 
-            ViewBag.WidgetName = donation.StudentWidget.FirstName;
+            using (var context = new AFSAdminContext())
+            {
+                var widget = context.StudentWidgets.Find(donation.StudentWidget_StudentWidgetId);
+                donation.StudentWidget = widget;
+                ViewBag.WidgetName = widget.FirstName;
+            }
             ViewBag.ErrorMsg = response.Message;
             return View(donation);
         }
