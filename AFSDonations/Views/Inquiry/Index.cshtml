@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (@ViewBag.ErrorMsg.Length > 0)
+{
+  <div class="row-fluid marketing">
+    <div class="span8 offset1 alert-error">
+        <p class="text-center">@ViewBag.ErrorMsg</p>
+    </div>
+</div>
+}
+
+<div class="row-fluid marketing">
+    <div class="span8 offset1">
+        <p>
+            <b>Sponsor an AFSer Participation Request</b>
+        </p>
+        <p>
+            Do you have what it takes to raise money through the Sponsor an AFSer program? If so,  complete the form below and click the blue "Submit" button. You will be able to start raising money for your program tuition in no time!
+        </p>
+        <p>
+            Your request will be processed within one week by the AFS Scholarships Team. 
+        </p>
+        <p>
+            If you have not yet created a blog, you must do so before sending in your request. Go to Blogger now to get started!
+        </p>
+    </div>   
+</div>
+
+<div class="row-fluid marketing">
+    <div class="span8 offset1">
+        <form name="inquiryform" id="inquiryform" action="@Url.Action("Index")" class="form-horizontal" method="POST">
+            <fieldset>
+                <legend>Sponsor an AFSer Participation Request</legend>
+                <div class="control-group">
+                    <label class="control-label" for="StudentName">Student Name:</label> 
+                    <div class="controls">
+                        <input class="span5" name="FirstName" id="FirstName" type="text" placeholder="FirstName" value=""/>
+                        <input class="span5" name="LastName" id="LastName" type="text" placeholder="LastName" value=""/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="BlogURL">Blog URL:</label> 
+                    <div class="controls">
+                        <input class="span11" name="BlogURL" id="BlogURL" type="text" placeholder="Blog URL" value=""/>
+                    </div>
+                </div>
+                <div class="control-group input-prepend">
+                    <label class="control-label" for="Amount">Fundraising Goal:</label> 
+                    <div class="controls">
+                        <span class="add-on">$</span><input class="span11" name="Amount" id="Amount" type="text" placeholder="Amount" value="" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <p>Note: If you are applying for a summer program, your goal cannot exceed $3,000. If you are applying for a semester or year program, your goal cannot exceed $5,000. If you get within $500 dollars of your goal then you can request that we raise your limit.</p>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</div>
