@@ -36,10 +36,26 @@ namespace AFSDonations.Controllers
         public ActionResult Index(Donation donation)
         {
             var request = new AuthorizationRequest(donation.CardNumber, donation.ExpMonth + donation.ExpYear, donation.Amount,
-                "Test Transaction");
+                "Sponsor an AFSer");
+
+            request.AddCustomer("", donation.FirstName, donation.LastName, donation.Address, donation.State,
+                                donation.Zip);
+
+            request.City = donation.City;
+            request.Email = donation.Email;
+
+            using (var context = new AFSAdminContext())
+            {
+                var widget = context.StudentWidgets.Find(donation.StudentWidget_StudentWidgetId);
+                request.ShipToFirstName = widget.FirstName;
+                request.ShipToLastName = widget.LastName;
+            }
+ 
+            
 
             //step 2 - create the gateway, sending in your credentials
-            var gate = new Gateway("6zz6m5N4Et", "9V9wUv6Yd92t27t5", true);
+            //var gate = new Gateway("6zz6m5N4Et", "9V9wUv6Yd92t27t5", true);
+            var gate = new Gateway("7f5SDz7huZ", "8A44F37ee89KqBDz", false);
 
             //step 3 - make some money
             var response = gate.Send(request);
@@ -61,7 +77,7 @@ namespace AFSDonations.Controllers
 
                 using (var svc = new WebserviceFundAFSerSoapClient())
                 {
-                    XElement rsp = svc.AFSWidgetPaymentDetails("afserwidget2012", "white1Hallfl2oreappleCity"
+                    XElement rsp = svc.AFSWidgetPaymentDetails("afserwidget", "globalwidgerasfer2012"
                                                                     , donation.StudentWidget.ServiceId.ToString()
                                                                     , donation.StudentWidget.StudentWidgetId.ToString()
                                                                     , donation.TransactionId
@@ -75,6 +91,7 @@ namespace AFSDonations.Controllers
                                                                     , donation.Email
                                                                     , donation.Amount.ToString()
                                                                     , donation.Message);
+                    TempData["WSResponse"] = rsp;
                 }
 
                 TempData["Email"] = donation.Email;
@@ -89,7 +106,7 @@ namespace AFSDonations.Controllers
                 donation.StudentWidget = widget;
                 ViewBag.WidgetName = widget.FirstName;
             }
-            ViewBag.ErrorMsg = response.Message;
+            ViewBag.ErrorMsg = "Error code: " + response.ResponseCode + " Message: " + response.Message;
             return View(donation);
         }
 
